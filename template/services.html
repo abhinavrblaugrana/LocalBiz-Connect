@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - LocalBiz Connect</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Services - LocalBiz Connect{% endblock %}
 
-<header class="top-bar">
-    <div class="logo">LocalBiz</div>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="services.html">Services</a>
-        <a href="aboutus.html">About Us</a>
-        <a href="contact.html">Contact</a>
-        <a href="student.html">Profile</a>
-    </nav>
-  </header>
+{% block content %}
 
 <main class="container">
 <section class="page-title">
@@ -66,9 +48,6 @@
 </section>
 </main>
 
-<footer>
-    <p>Services page - LocalBiz Connect</p>
-</footer>
+{% endblock %}
 
-</body>
-</html>
+{% block footer %}Services - LocalBiz Connect{% endblock %}

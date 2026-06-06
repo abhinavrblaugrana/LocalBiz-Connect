@@ -1,5 +1,4 @@
 function submitEnquiry(event){
-    event.preventDefault();
     const name=document.getElementById("name").value.trim();
     const email=document.getElementById("email").value.trim();
     const service=document.getElementById("service").value.trim();
@@ -11,6 +10,6 @@ function submitEnquiry(event){
         formMessage.style.color="red";
         return;
     }
-    formMessage.textContent = "Thank you, " + name + "! Your enquiry has been recorded for the Day 2 demo.";
+    formMessage.textContent = "Thank you, " + name + "! Your enquiry has been recorded for the demo.";
     formMessage.style.color = "#123c69";
 }

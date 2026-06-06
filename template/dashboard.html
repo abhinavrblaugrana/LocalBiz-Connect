@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Dashboard - LocalBiz Connect{% endblock %}
+
+{% block content %}
+  <main class="container">
+  <section class="page-title">
+        <h2>Dashboard</h2>
+        <p>Now this dashboard reads enquiry data from SQLite database</p>
+      </section>
+      
+      <section class="datas">
+
+    <div class="card-datas">
+        <h3>Total Enquiries</h3>
+          <p class="stat-number">{{ counts.total_enquiries }}</p>
+    </div>
+
+    <div class="card-datas">
+        <h3>Open Requests</h3>
+        <p class="stat-number">{{ counts.open_requests }}</p>
+    </div>
+
+    <div class="card-datas">
+        <h3>Completed Works</h3>
+        <p class="stat-number">{{ counts.completed_works }}</p>
+    </div>
+  </section>
+
+  <section class="enquiry-box">
+    <h3>Recent Enquiries</h3>
+    <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Services</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
+      {% for enquiry in enquiries %}
+    <tr>
+      <td>{{ enquiry.name }}</td>
+      <td>{{ enquiry.service }}</td>
+      <td>{{ enquiry.status }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </section>
+  </main>
+
+  {% endblock %}
+
+{% block footer %}Dashboard - LocalBiz Connect{% endblock %}
+

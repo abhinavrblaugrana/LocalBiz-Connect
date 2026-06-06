@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Contact - LocalBiz Connect{% endblock %}
+
+{% block content %}
+<main class="contact-container">
+  <section class="page-title">
+      <h2>Contact Us</h2>
+      <p>Send a service query. Later this form will connect to backend and database.</p>
+  </section>
+
+  <section class="form-box">
+
+    <form onsubmit="submitEnquiry(event)" method="POST" action="{{ url_for('contact') }}">
+
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Enter your name" required>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="Enter your email" required>
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" placeholder="Enter your phone no." required>
+
+        <label for="service">Service</label>
+        <select id="service" name="service" required>
+            <option value="">Select a Service</option>
+            <option>Website Design</option>
+            <option>App Development</option>
+            <option>Digital Marketing</option>
+            <option>IT Support</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+        <button type="submit" class="primary-btn">Submit Enquiry</button>
+        <p id="formMessage"></p>
+
+    </form>
+
+  </section>
+  </main>
+
+{% endblock %}
+
+{% block footer %}Contact - LocalBiz Connect{% endblock %}
+

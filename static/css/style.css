@@ -8,6 +8,11 @@ body{
     margin: 0px;
 }
 
+a{
+    text-decoration: none;
+    color: rgb(226, 224, 240);;
+}
+
 .top-bar{
     background: rgb(7, 2, 96);
     color: rgb(221, 226, 245);
@@ -61,6 +66,10 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+.card h3{
+    font-weight: normal;
+}
+
 .grid{
     display:grid;
     grid-template-columns: repeat(4,1fr);
@@ -90,10 +99,6 @@ button{
     box-shadow: 5px 5px 18px rgba(0,0,0,0.08);
 }
 
-.button-home{
-    text-decoration: none;
-    color: rgb(226, 224, 240);;
-}
 
 #message{
     font-weight:300;
@@ -114,6 +119,10 @@ button{
 .card-style p{
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.card-style h3{
+    font-weight: normal;
 }
 
 footer{
@@ -231,6 +240,7 @@ textarea {
 }
 
 .enquiry-box h3{
+    font-weight: normal;
     margin-top: 0px;
     margin-bottom: 36px;
     color: rgb(49, 61, 104);
@@ -266,4 +276,12 @@ th, td {
 th { 
     background: #e3f2fd; 
     color: #123c69; 
+}
+
+.delete-btn{
+    color: rgb(249, 96, 96);
+}
+
+.delete-btn:hover{
+    color: red;
 }

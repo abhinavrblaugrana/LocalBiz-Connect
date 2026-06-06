@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Home - LocalBiz Connect{% endblock %}
+
+{% block content %}
+    <main class="container">
+      <section class="card">
+        <h2>Welcome</h2>
+        <p>Build Your Business Online.</p>
+      </section>
+      <section class="grid">
+        <div class="mini-card">Website Design</div>
+        <div class="mini-card">App Development</div>
+        <div class="mini-card">Digital Marketing</div>
+        <div class="mini-card">IT Support</div>
+      </section>
+      <button><a href="{{ url_for('contact') }}" class="button-home">Contact Us</a></button>
+    </main>
+ {% endblock %}
+
+{% block footer %}Home - LocalBiz Connect{% endblock %}

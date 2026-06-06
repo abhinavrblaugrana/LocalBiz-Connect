@@ -3,19 +3,152 @@
 {% block title %}Home - LocalBiz Connect{% endblock %}
 
 {% block content %}
-    <main class="container">
-      <section class="card">
-        <h2>Welcome</h2>
-        <p>Build Your Business Online.</p>
-      </section>
-      <section class="grid">
-        <div class="mini-card">Website Design</div>
-        <div class="mini-card">App Development</div>
-        <div class="mini-card">Digital Marketing</div>
-        <div class="mini-card">IT Support</div>
-      </section>
-      <button><a href="{{ url_for('contact') }}" class="button-home">Contact Us</a></button>
-    </main>
- {% endblock %}
+
+<main class="container">
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Empowering Local Businesses Through Technology</h1>
+            <p>
+                Build your online presence, attract more customers, and grow
+                your business with professional digital solutions tailored
+                for modern businesses.
+            </p>
+
+            <button>
+                <a href="{{ url_for('contact') }}" class="button-home">
+                    Get Started
+                </a>
+            </button>
+        </div>
+    </section>
+
+    <section class="page-title">
+        <h2>Our Services</h2>
+        <p>Everything your business needs to succeed online.</p>
+    </section>
+
+    <section class="grid">
+
+        <div class="mini-card">
+            <div class="icon">🌐</div>
+            <h3>Website Design</h3>
+            <p>Modern, responsive websites that convert visitors into customers.</p>
+        </div>
+
+        <div class="mini-card">
+            <div class="icon">📱</div>
+            <h3>App Development</h3>
+            <p>Custom web and mobile applications built for performance.</p>
+        </div>
+
+        <div class="mini-card">
+            <div class="icon">📈</div>
+            <h3>Digital Marketing</h3>
+            <p>Grow your audience and increase business visibility online.</p>
+        </div>
+
+        <div class="mini-card">
+            <div class="icon">🛠️</div>
+            <h3>IT Support</h3>
+            <p>Reliable technical assistance whenever your business needs it.</p>
+        </div>
+
+    </section>
+
+    <section class="card">
+        <h2>Why Choose Us?</h2>
+
+        <div class="features">
+
+            <div class="card-style">
+                <h3>Affordable Solutions</h3>
+                <p>
+                    Premium quality services designed for startups and local businesses.
+                </p>
+            </div>
+
+            <div class="card-style">
+                <h3>Modern Technology</h3>
+                <p>
+                    Built using current technologies and industry best practices.
+                </p>
+            </div>
+
+            <div class="card-style">
+                <h3>Dedicated Support</h3>
+                <p>
+                    Quick assistance and continuous guidance throughout your journey.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="stats-section">
+
+        <div class="stat-card">
+            <h3>150+</h3>
+            <p>Businesses Supported</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>300+</h3>
+            <p>Projects Completed</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>98%</h3>
+            <p>Client Satisfaction</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>24/7</h3>
+            <p>Support Available</p>
+        </div>
+
+    </section>
+
+    <section class="testimonial-section">
+
+        <h2>What Our Clients Say</h2>
+
+        <div class="testimonial-grid">
+
+            <div class="testimonial-card">
+                <p>
+                    "LocalBiz Connect helped us launch our website and attract
+                    new customers within weeks."
+                </p>
+                <span>- Sarah, Bakery Owner</span>
+            </div>
+
+            <div class="testimonial-card">
+                <p>
+                    "Professional service and excellent communication from start
+                    to finish."
+                </p>
+                <span>- Rahul, Startup Founder</span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Grow Your Business?</h2>
+        <p>
+            Let's transform your ideas into a powerful digital presence.
+        </p>
+
+        <button>
+            <a href="{{ url_for('contact') }}" class="button-home">
+                Contact Us Today
+            </a>
+        </button>
+    </section>
+
+</main>
+{% endblock %}
 
 {% block footer %}Home - LocalBiz Connect{% endblock %}

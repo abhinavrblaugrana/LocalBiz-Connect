@@ -5,7 +5,7 @@
 
     <main class="container">
         <section class="page-title">
-        <h2>Admin - Enquiries</h2>
+        <h1>Admin - Enquiries</h1>
         <p>View and manage all enquiries submitted through the contact form.</p>
         </section>
 
@@ -21,6 +21,7 @@
                             <th>Phone</th>
                             <th>Service</th>
                             <th>Status</th>
+                            <th>Message</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -34,6 +35,7 @@
                             <td>{{ enquiry.phone }}</td>
                             <td>{{ enquiry.service }}</td>
                             <td>{{ enquiry.status }}</td>
+                            <td><span class="view-msg-btn" onclick="showMessage(`{{enquiry.message}}`)">👁</span></td>
                             <td>
                                 <a href="{{ url_for('delete', enquiry_id=enquiry.id) }}" class="delete-btn">Delete</a>
                             </td>
@@ -41,6 +43,24 @@
                         {% endfor %}
                     </tbody>
                 </table>
+            <div id="messageModal" class="message-modal">
+
+    <div class="message-content">
+
+        <div class="message-header">
+            <h3>Customer Message</h3>
+
+            <span class="close-btn"
+                  onclick="closeMessage()">
+                ✖
+            </span>
+        </div>
+
+        <p id="modalMessage"></p>
+
+    </div>
+
+</div>
         </section>
     </main>
 {% endblock %}

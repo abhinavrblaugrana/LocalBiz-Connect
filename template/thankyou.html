@@ -2,18 +2,28 @@
 {% block title %}Thank You - LocalBiz Connect{% endblock %}
 
 {% block content %}
-    <main class="container">
-<section class="page-title">
-    <h2>Thank You !</h2>
-    <p>Your enquiry has been submitted successfully.</p>
-</section>
-
-<section class="page-content">
+<main class="container">
+<section class="thank-you-section">
+    <div class="success-icon">✓</div>
+    <h1>Thank You!</h1>
+    <p class="thank-you-message">Your enquiry has been submitted successfully.</p>
     <div class="card-style">
-        <h3>What happens next?</h3>
-        <p>Our team will review your enquiry and contact you soon.</p>
-        <button><a href="{{ url_for('dashboard') }}">View Dashboard</a></button>
-        <button><a href="{{ url_for('admin') }}">View Admin</a></button>
+        <h3>What Happens Next?</h3>
+        <p>
+            Our team will review your enquiry and get in touch with you
+            as soon as possible. We appreciate your interest in
+            LocalBiz Connect and look forward to helping your business grow.
+        </p>
+    </div>
+
+    <div class="thank-actions">
+        <button>
+            <a href="{{ url_for('dashboard') }}">View Dashboard</a>
+        </button>
+
+        <button class="secondary-btn">
+            <a href="{{ url_for('admin') }}">Admin Panel</a>
+        </button>
     </div>
 </section>
 </main>

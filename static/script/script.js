@@ -13,3 +13,12 @@ function submitEnquiry(event){
     formMessage.textContent = "Thank you, " + name + "! Your enquiry has been recorded for the demo.";
     formMessage.style.color = "#123c69";
 }
+
+function showMessage(message) {
+    document.getElementById("modalMessage").innerText = message;
+    document.getElementById("messageModal").style.display = "flex";
+}
+
+function closeMessage() {
+    document.getElementById("messageModal").style.display = "none";
+}

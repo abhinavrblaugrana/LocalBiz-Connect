@@ -4,13 +4,15 @@
 {% block content %}
 <main class="contact-container">
   <section class="page-title">
-      <h2>Contact Us</h2>
-      <p>Send a service query. Later this form will connect to backend and database.</p>
+      <h1>Contact Us</h1>
+      <p>
+         Have a project in mind? Send us your enquiry and our team
+         will get back to you as soon as possible.</p>
   </section>
 
   <section class="form-box">
 
-    <form onsubmit="submitEnquiry(event)" method="POST" action="{{ url_for('contact') }}">
+    <form method="POST" action="{{ url_for('contact') }}">
 
         <label for="name">Name</label>
         <input id="name" name="name" type="text" placeholder="Enter your name" required>
@@ -34,10 +36,7 @@
         <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
 
         <button type="submit" class="primary-btn">Submit Enquiry</button>
-        <p id="formMessage"></p>
-
     </form>
-
   </section>
   </main>
 

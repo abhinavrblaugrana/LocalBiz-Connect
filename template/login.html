@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalBiz Connect</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<main class="login-container">
+<section class="auth-container">
+    <div class="auth-card">
+        <h1>Login</h1>
+        <p>Enter your email and password to continue.</p>
+
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('login') }}">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" placeholder="Enter your password" required>
+
+            <button class="primary-btn" type="submit">Login</button>
+        </form>
+
+        <p class="auth-link">New user? <a href="{{ url_for('signup') }}">Create an account</a></p>
+        <p class="demo-note">Demo login: demo@example.com / 123456</p>
+    </div>
+</section>
+</main>
+<script src="{{ url_for('static', filename='script/script.js') }}"></script>
+</body>
+</html>
+

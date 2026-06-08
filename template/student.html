@@ -8,11 +8,8 @@
       </section> 
 
       <section class="card">
-        <p><b>Name:</b> Abhinav R</p>
-        <p><b>College:</b> MBCET</p>
-        <p><b>Skills:</b> HTML, CSS, Basic Python</p>
-        <p><b>Carrer Goal:</b> To become a Full Stack Engineer</p>
-        <p><b>Contact :</b> 9562169890</p>
+        <p><b>Name:</b> {{ session.get('user_name') }}</p>
+        <p><b>Mail:</b>{{ session.get('mail') }}</p>
       </section>
     </main>
 {% endblock %}

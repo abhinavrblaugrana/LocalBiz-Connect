@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
+from functools import wraps
 
 from db import (
     create_tables,
@@ -6,7 +7,10 @@ from db import (
     get_all_enquiries,
     add_enquiry,
     delete_enquiry,
-    get_dashboard_counts
+    get_dashboard_counts,
+    create_user,
+    get_user_by_email,
+    check_user_password,
 )
 
 app = Flask(
@@ -16,11 +20,75 @@ app = Flask(
     static_url_path=""
 )
 
+app.secret_key = "barca"
+
 create_tables()
 insert_sample_data()
 
+def login_required(route_function):
+    @wraps(route_function)
+    def wrapper(*args, **kwargs):
+        if "user_id" not in session:
+            return redirect(url_for("login"))
+        return route_function(*args, **kwargs)
+    return wrapper
 
 @app.route("/")
+def default_page():
+    if "user_id" in session:
+        return redirect(url_for("home"))
+    return redirect(url_for("login"))
+
+
+@app.route("/signup.html", methods=["GET", "POST"])
+def signup():
+    error = None
+
+    if request.method == "POST":
+        name = request.form.get("name", "").strip()
+        email = request.form.get("email", "").strip().lower()
+        password = request.form.get("password", "")
+        confirm_password = request.form.get("confirm_password", "")
+
+        if name == "" or email == "" or password == "" or confirm_password == "":
+            error = "Please fill all fields."
+        elif len(password) < 6:
+            error = "Password must be at least 6 characters."
+        elif password != confirm_password:
+            error = "Passwords do not match."
+        elif get_user_by_email(email):
+            error = "This email is already registered. Please login."
+        else:
+            create_user(name, email, password)
+            return redirect(url_for("login"))
+
+    return render_template("signup.html", error=error)
+
+@app.route("/login.html", methods=["GET", "POST"])
+def login():
+    error = None
+
+    if request.method == "POST":
+        email = request.form.get("email", "").strip().lower()
+        password = request.form.get("password", "")
+
+        user = get_user_by_email(email)
+
+        if user and check_user_password(user, password):
+            session["user_id"] = user["id"]
+            session["user_name"] = user["name"]
+            session["mail"]=user["email"]
+            return redirect(url_for("home"))
+
+        error = "Invalid email or password."
+
+    return render_template("login.html", error=error)
+
+@app.route("/logout.html")
+def logout():
+    session.clear()
+    return redirect(url_for("login"))
+
 @app.route("/index.html")
 def home():
     return render_template("index.html")

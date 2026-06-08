@@ -1,4 +1,5 @@
 import sqlite3
+from werkzeug.security import generate_password_hash, check_password_hash
 
 DB_NAME = "localbiz.db"
 
@@ -14,6 +15,15 @@ def create_tables():
     cur=conn.cursor()
 
     cur.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL
+    )
+    """)
+
+    cur.execute("""
     CREATE TABLE IF NOT EXISTS enquiries (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
@@ -27,6 +37,35 @@ def create_tables():
 
     conn.commit()
     conn.close()
+
+def create_user(name, email, password):
+    conn = get_connection()
+    cur = conn.cursor()
+
+    password_hash = generate_password_hash(password)
+
+    cur.execute("""
+    INSERT INTO users (name, email, password_hash)
+    VALUES (?, ?, ?)
+    """, (name, email, password_hash))
+
+    conn.commit()
+    conn.close()
+
+
+def get_user_by_email(email):
+    conn = get_connection()
+    cur = conn.cursor()
+
+    cur.execute("SELECT * FROM users WHERE email = ?", (email,))
+    user = cur.fetchone()
+
+    conn.close()
+    return user
+
+
+def check_user_password(user, password):
+    return check_password_hash(user["password_hash"], password)
 
 
 def insert_sample_data():

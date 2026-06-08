@@ -632,3 +632,41 @@ footer{
     line-height:1.8;
     color:#334155;
 }
+
+.login-container{
+    max-width: 450px;
+    margin:30px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-container{
+    max-width: 550px;
+}
+
+.auth-card{
+    color:black;
+    background: #ffff;
+    padding:24px;
+    border-radius:12px;
+    margin-bottom: 20px;
+    margin-top: 25px;
+    box-shadow: 5px 5px 18px rgba(0,0,0,0.08);
+    width:450px
+}
+
+.auth-card label{
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-link a{
+    color: rgb(49, 61, 104) ;
+    font-weight: bold;
+}
+
+.demo-note{
+    background: #e9f1fa;
+    padding: 8px;
+    border-radius: 12px;
+}
